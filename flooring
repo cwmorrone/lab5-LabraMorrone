@@ -1,0 +1,55 @@
+# Programmers: Guadalupe Labra & Chase Morrone
+# Course: CS151, Dr. Simari
+# Date: 8 October 2020
+# Lab Number: 5
+# Program Inputs: the dimensions of each room and the type of flooring
+# Program Outputs: the price of each room and the total cost
+def main_function():
+    # output the purpose
+    print("The purpose of this lab is to output the price of each room and the total cost.")
+
+    # ask user for type of flooring
+    floor_type = input("Please enter the type of flooring you would like: ")
+    floor_type = floor_type.lower().strip( )
+    total_cost = 0
+    # determining cost for each type of flooring
+    if floor_type == 'hardwood':
+        cost_per_sqft = 1.39
+
+    elif floor_type == 'carpet':
+        cost_per_sqft = 3.99
+
+    elif floor_type == 'tile':
+        cost_per_sqft = 4.99
+
+    else:
+        print("Floor type entered is invalid. Try again.")
+    # output cost of floor type entered per square ft
+    print("The cost of", floor_type, "is", cost_per_sqft, "per square ft.")
+    i = 0
+    for i in range(5):
+
+        # ask user to input dimensions of the room
+        room_length = input("Please enter the length of the room: ")
+        room_length = int(room_length)
+
+        room_width = input("Please enter the width of the room: ")
+        room_width = int(room_width)
+
+        # calculate the area for one room
+        room_area = room_width * room_length
+
+        # calculate the cost for one room
+        room_cost = room_area * cost_per_sqft
+        room_cost = round(room_cost, 2)
+
+        print("The cost for this room is", room_cost, ".")
+
+        total_cost += room_cost
+
+        i+=1
+
+    # calculating the total cost for all 5 rooms
+    total_cost = round(total_cost, 2)
+    print("The total cost for all five rooms is $", total_cost, ".")
+main_function()
